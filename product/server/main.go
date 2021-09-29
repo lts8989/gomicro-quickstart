@@ -31,6 +31,7 @@ func (s *server) AddProduct(ctx context.Context, req *product.Product) (resp *pr
 
 	s.productMap[req.Id] = req
 	resp.Value = req.Id
+	log.Println("AddProduct req.Id:" + req.Id)
 	return
 }
 
@@ -41,6 +42,8 @@ func (s *server) GetProduct(ctx context.Context, req *product.ProductId) (resp *
 	}
 
 	resp = s.productMap[req.Value]
+	log.Println("GetProduct ProductName:" + resp.GetName())
+
 	return
 }
 
